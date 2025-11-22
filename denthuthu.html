@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đèn Kéo Quân Trung Thu (Rằm tháng Tám)</title>
+    <!-- Tải Tailwind CSS để làm đẹp giao diện chung -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1f2937; /* Nền tối cho không khí đêm Rằm */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* -------------------------- */
+        /* CSS DÀNH CHO HIỆU ỨNG 3D */
+        /* -------------------------- */
+
+        /* Khung cảnh 3D (Scene) */
+        .scene {
+            width: 300px;
+            height: 300px;
+            perspective: 1200px; /* Độ sâu 3D */
+            margin-top: 2rem;
+            
+        }
+
+        /* Khối Đèn (Cube) */
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d; /* Giữ các mặt trong không gian 3D */
+            /* Animation quay: 20s, lặp vô hạn, tốc độ đều */
+            animation: rotate 20s infinite linear;
+            cursor: pointer;
+            box-shadow: 0 0 50px rgba(255, 255, 0, 0.5); /* Hiệu ứng phát sáng */
+            border-radius: 12px;
+        }
+
+        /* Animation Quay */
+        @keyframes rotate {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        /* Các mặt của Đèn */
+        .face {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 2px solid #fcd34d; /* Khung viền vàng */
+            background-color: rgba(255, 255, 255, 0.1); /* Hơi trong suốt */
+            opacity: 0.9;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hình ảnh bên trong */
+        .face img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        /* Thiết lập vị trí 6 mặt cho khối Cube */
+        /* Kích thước cube là 300x300, bán kính quay là 150px */
+        .front  { transform: rotateY(  0deg) translateZ(150px); }
+        .back   { transform: rotateY(180deg) translateZ(150px); }
+        .right  { transform: rotateY( 90deg) translateZ(150px); }
+        .left   { transform: rotateY(-90deg) translateZ(150px); }
+        .top    { transform: rotateX( 90deg) translateZ(150px); }
+        .bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+        /* Hiệu ứng khi dừng (dùng cho JS) */
+        .paused {
+            animation-play-state: paused !important;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Tiêu đề -->
+    <header class="text-center mb-8">
+        <h1 class="text-4xl font-bold text-yellow-400 mb-2">🏮 ĐÈN KÉO QUÂN 🏮</h1>
+        <p class="text-xl text-gray-300">Rằm Tháng Tám - Mid-Autumn Festival</p>
+        <p class="text-sm text-gray-400 mt-2">
+            *Rê chuột vào bất kỳ mặt nào của đèn để dừng lại.*
+        </p>
+    </header>
+
+    <!-- Khung cảnh 3D -->
+    <div class="scene">
+        <div id="lantern-cube" class="cube">
+            
+            <!-- Mặt 1: Ảnh Chân Dung (Yêu cầu) -->
+            <div class="face front">
+                <img src="/images/Screenshot 2025-11-22 133218.png" alt="Ảnh chân dung">
+            </div>
+            
+            <!-- Mặt 2: Thỏ Ngọc -->
+            <div class="face back">
+                <img src="https://placehold.co/300x300/fecaca/7f1d1d?text=Thỏ+Ngọc" alt="Thỏ Ngọc">
+            </div>
+            
+            <!-- Mặt 3: Chú Cuội -->
+            <div class="face right">
+                <img src="https://placehold.co/300x300/bfdbfe/1e3a8a?text=Chú+Cuội" alt="Chú Cuội">
+            </div>
+            
+            <!-- Mặt 4: Múa Lân -->
+            <div class="face left">
+                <img src="https://placehold.co/300x300/c7d2fe/3730a3?text=Múa+Lân" alt="Múa Lân">
+            </div>
+            
+            <!-- Mặt 5: Lồng Đèn Truyền Thống -->
+            <div class="face top">
+                <img src="https://placehold.co/300x300/d8b4fe/581c87?text=Lồng+Đèn" alt="Lồng Đèn">
+            </div>
+            
+            <!-- Mặt 6: Bánh Trung Thu -->
+            <div class="face bottom">
+                <img src="https://placehold.co/300x300/fef08a/854d0e?text=Bánh+Trung+Thu" alt="Bánh Trung Thu">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-12 text-center text-gray-400 text-sm">
+        Trang Web mô phỏng Đèn Kéo Quân - Lập trình với HTML, CSS 3D và JavaScript.
+    </footer>
+
+    <!-- -------------------------- -->
+    <!-- JAVASCRIPT LOGIC -->
+    <!-- -------------------------- -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lấy ra phần tử Đèn Kéo Quân 3D
+            const lantern = document.getElementById('lantern-cube');
+
+            // Lấy tất cả các mặt của đèn
+            const faces = lantern.querySelectorAll('.face');
+            
+            // Hàm dừng quay (Pause)
+            const pauseRotation = () => {
+                lantern.style.animationPlayState = 'paused';
+            };
+
+            // Hàm tiếp tục quay (Resume)
+            const resumeRotation = () => {
+                lantern.style.animationPlayState = 'running';
+            };
+
+            // Gán sự kiện cho từng mặt của đèn (hoặc gán cho cả khối cube)
+            // Gán cho từng mặt để đảm bảo hiệu ứng chính xác
+            faces.forEach(face => {
+                face.addEventListener('mouseover', pauseRotation);
+                face.addEventListener('mouseout', resumeRotation);
+            });
+            
+            // Nếu muốn chỉ gán cho khối chính, hãy dùng:
+            // lantern.addEventListener('mouseover', pauseRotation);
+            // lantern.addEventListener('mouseout', resumeRotation);
+            
+            // Khởi động animation ngay từ đầu
+            resumeRotation();
+        });
+    </script>
+
+</body>
+</html>
