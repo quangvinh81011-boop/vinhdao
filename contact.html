@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đào Quang Vinh - Liên hệ</title>
+    <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Cấu hình font Inter mặc định -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9; /* Màu nền nhẹ */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Thanh Điều Hướng (Navigation) -->
+    <nav class="bg-white shadow-lg p-4 sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+                <a href="index.html" class="hover:text-blue-600 transition duration-300">Đào Quang Vinh</a>
+            </div>
+            <div class="space-x-4">
+                <a href="index.html" class="text-gray-600 hover:text-blue-600 transition duration-300 px-3 py-2 rounded-lg">Trang chủ</a>
+                <a href="about.html" class="text-gray-600 hover:text-blue-600 transition duration-300 px-3 py-2 rounded-lg">Giới thiệu</a>
+                <a href="contact.html" class="text-white bg-blue-600 hover:bg-blue-700 transition duration-300 px-3 py-2 rounded-lg shadow-md">Liên hệ</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-4xl mx-auto p-6 md:p-10 w-full">
+        <!-- Phần Tiêu Đề -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Liên Hệ Với Mình</h1>
+            <p class="text-xl text-gray-500">Mình luôn sẵn lòng kết nối và trao đổi về các dự án!</p>
+        </header>
+
+        <!-- Phần Thông Tin Liên Hệ -->
+        <section class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl border border-gray-100">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-3">Chi Tiết Liên Lạc</h2>
+            
+            <div class="space-y-6">
+                <!-- Gmail -->
+                <div class="flex items-start space-x-4">
+                    <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26c.49.33 1.11.33 1.6 0L21 8M3 8a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"></path></svg>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-500">Gmail/Email</p>
+                        <a href="mailto:nguyenvana.dev@email.com" class="text-lg font-medium text-gray-900 hover:text-blue-600 transition duration-300">quangvinh81011@gmail.com</a>
+                    </div>
+                </div>
+
+                <!-- Số Điện Thoại (SĐT) -->
+                <div class="flex items-start space-x-4">
+                    <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.5l1.5 4.5 4.5 1.5-1.5 4.5H19a2 2 0 012 2v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 16h-4a2 2 0 00-2 2v2a2 2 0 002 2h4a2 2 0 002-2v-2a2 2 0 00-2-2zM3 16h4a2 2 0 012 2v2a2 2 0 01-2 2H3a2 2 0 01-2-2v-2a2 2 0 012-2z"></path></svg>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-500">Số Điện Thoại (SĐT)</p>
+                        <p class="text-lg font-medium text-gray-900">0367981011</p>
+                    </div>
+                </div>
+
+                <!-- Địa Chỉ -->
+                <div class="flex items-start space-x-4">
+                    <svg class="w-6 h-6 text-red-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243m10.606 0a6 6 0 10-10.606 0m10.606 0l1.414-1.414m-10.606 1.414l-1.414-1.414m10.606 0H12m0 0V4"></path></svg>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-500">Địa Chỉ</p>
+                        <p class="text-lg font-medium text-gray-900"> TP. Hồ Chí Minh</p>
+                    </div>
+                </div>
+
+                <!-- Facebook (FB) -->
+                <div class="flex items-start space-x-4">
+                    <svg class="w-6 h-6 text-blue-700 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24h11.498v-9.294h-3.13v-3.626h3.13v-2.19c0-3.116 1.893-4.809 4.672-4.809 1.332 0 2.479.1 2.812.144v3.23l-1.914.001c-1.503 0-1.795.716-1.795 1.763v2.302h3.587l-.467 3.626h-3.12v9.294h6.142c.732 0 1.325-.593 1.325-1.325V1.325C24 .593 23.407 0 22.675 0z"/></svg>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-500">Facebook (FB)</p>
+                        <a href="https://www.facebook.com/NguyenVanA.Developer" target="_blank" class="text-lg font-medium text-gray-900 hover:text-blue-600 transition duration-300">Đào Quang Vinh</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-8 py-4 text-center text-gray-500 text-sm border-t">
+        &copy; 2025 Đào Quang Vinh. Full-stack Developer tương lai.
+    </footer>
+
+</body>
+</html>
